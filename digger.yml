@@ -1,6 +1,6 @@
 projects:
 - name: production
-  dir: prod
+  dir: projects/stg
   workflow: with-infracost
 
 workflows:
