@@ -1,9 +1,14 @@
 projects:
-- name: production
+- name: staging
   dir: projects/stg
-  workflow: with-infracost
+  workflow: without-infracost
 
 workflows:
+  without-infracost:
+    plan:
+      steps:
+        - init
+        - plan
   with-infracost:
     plan:
       steps:
