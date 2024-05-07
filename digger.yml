@@ -3,6 +3,10 @@ projects:
   dir: projects/stg
   workflow: without-infracost
 
+- name: production
+  dir: projects/prd
+  workflow: with-infracost
+
 workflows:
   without-infracost:
     plan:
