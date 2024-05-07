@@ -28,7 +28,6 @@ jobs:
       - name: digger run
         uses: diggerhq/digger@v0.4.22
         with:
-          setup-aws: true
           no-backend: true
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
