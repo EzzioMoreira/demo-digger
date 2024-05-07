@@ -3,10 +3,6 @@ projects:
   dir: projects/stg
   workflow: without-infracost
 
-- name: production
-  dir: projects/prd
-  workflow: with-infracost
-
 workflows:
   without-infracost:
     plan:
@@ -27,6 +23,7 @@ workflows:
         - init
         - plan
         - run: infracost breakdown --path=. | tee -a $DIGGER_OUT
+        - run: infracost diff --path=. --compare-to=$RUNNER_TEMP/infracost-base-${PROJECT_NAME}.json | tee -a $DIGGER_OUT
     workflow_configuration:
       on_pull_request_pushed: ["digger plan"]
       on_pull_request_closed: ["digger unlock"]
